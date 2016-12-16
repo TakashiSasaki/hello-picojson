@@ -1,6 +1,11 @@
-test: ./main
+test-readgraph: ./readgraph
+	./readgraph < graph.json
+
+test-main: ./main
 	./main < hello.json
 
 clean:
-	rm -f main main.o
+	rm -f main main.o readgraph readgraph.o
+
+
 
