@@ -10,9 +10,21 @@ int main(int argc, char** argv){
     std::string error_string = picojson::parse(picojson_value, std::cin);
     std::cerr << error_string << std::endl;
     std::map<std::string, picojson::value> m = picojson_value.get<picojson::object>();
-    std::cerr << "-------NODES------------\n";
-    std::cerr << m["nodes"] << std::endl;
-    std::cerr << "-------EDGES------------\n";
-    std::cerr << m["edges"] << std::endl;
+    std::cout << "-------NODES------------\n";
+    std::cout << m["nodes"] << std::endl;
+    std::cout << "-------EDGES------------\n";
+    std::cout << m["edges"] << std::endl;
+
+    std::cout << "-------NODES------------\n";
+    picojson::array & nodes = m["nodes"].get<picojson::array>();
+    for(picojson::array::iterator i = nodes.begin(); i != nodes.end(); ++i) {
+        std::cout << *i << std::endl;
+    }
+
+    std::cout << "-------EDGES------------\n";
+    picojson::array & edges = m["edges"].get<picojson::array>();
+    for(picojson::array::iterator i = edges.begin(); i != edges.end(); ++i) {
+        std::cout << *i << std::endl;
+    }
     return EXIT_SUCCESS;
 }
