@@ -1,3 +1,6 @@
+test-dij: ./dij
+	./dij <graph.json
+
 test-readgraph: ./readgraph
 	./readgraph < graph.json
 
